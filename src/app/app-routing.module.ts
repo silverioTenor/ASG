@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -7,15 +9,18 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  { 
+    path: 'login', 
+    loadChildren: './pages/login/login.module#LoginPageModule', canActivate: [LoginGuard]
+  },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule), canActivate: [AuthGuard]
   },
   {
     path: 'list',
     loadChildren: () => import('./pages/list/list.module').then(m => m.ListPageModule)
   },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' }
 ];
 
 @NgModule({
