@@ -1,0 +1,61 @@
+#geral {
+    height: 100%;
+    background-image: url('/assets/background (3).jpg');
+    background-position: left;
+}
+
+.container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 75%;
+    margin: 0 auto;
+    z-index: 2;
+
+    &.top {
+        top: 5%;
+
+        img {
+            width: 200px;
+            margin-left: 32px;
+        }
+    }
+
+    &.bottom {
+        bottom: 15%;
+    }
+}
+
+ion-slides {
+    height: 100%;
+}
+
+.slide-inner {
+    width: 75%;
+    color: #fff;
+    background: rgba($color: #2e8ebb, $alpha: 0.9);
+    border-radius: 5px;
+
+    ion-item {
+        --border-radius: 5px;
+        --background: rgba(255, 255, 255, 0.3);
+
+        ion-input {
+            --color: #fff;
+            --border-radius: 5px;
+        }
+    }
+}
+
+ion-segment {
+    ion-button {
+        width: 50%;
+        margin: 5px;
+        border-radius: 5px;
+        color: #fff;
+    }
+}
+
+.notPassword {
+    padding-top: 20px;
+}

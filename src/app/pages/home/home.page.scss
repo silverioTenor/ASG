@@ -2,3 +2,22 @@
   max-height: 100vh;
   overflow: hidden;
 }
+
+.welcome-card2 {
+  width: 25vh;
+  float: left;
+  padding-bottom: 5px;
+
+  img {
+    margin-bottom: 5px;
+  }
+
+  div {
+    width: 160px;
+    padding: 5px;
+    color: rgb(41, 41, 41);
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
