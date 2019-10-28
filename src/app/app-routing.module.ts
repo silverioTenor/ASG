@@ -21,6 +21,14 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./pages/list/list.module').then(m => m.ListPageModule)
   },
+  { 
+    path: 'details', 
+    loadChildren: './pages/details/details.module#DetailsPageModule', canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'details/:id', 
+    loadChildren: './pages/details/details.module#DetailsPageModule', canActivate: [AuthGuard] 
+  },
 ];
 
 @NgModule({
