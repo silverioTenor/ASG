@@ -16,8 +16,13 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
+          <ion-item id="sair" (click)="logout()">
+            <ion-icon slot="start" name="power"></ion-icon>
+            <ion-label>
+              Sair
+            </ion-label>
+          </ion-item>
         </ion-list>
-        <ion-item>Sair</ion-item>
       </ion-content>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
