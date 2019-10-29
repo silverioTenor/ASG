@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { AuthService } from 'src/app/services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
-import { User } from 'src/app/interfaces/user';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-password',
@@ -28,8 +28,10 @@ export class PasswordPage implements OnInit {
 
     try {
       await this.auth.forgotPassword(this.userPassword);
+      
+      this.msg.presentAlert('Um link para redefinição de senha foi enviado ao e-mail cadastrado!');
 
-      this.router.navigate(['/login']);
+      this.router.navigate(['../']);
     } catch (error) {
       let message: string;
 

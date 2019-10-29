@@ -1,4 +1,4 @@
-import { Product } from './../interfaces/product';
+import { Product } from '../model/product';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
@@ -13,7 +13,6 @@ export class ProductService {
   constructor(private afs: AngularFirestore) {
     this.productsCollection = this.afs.collection<Product>('Produtos');
   }
-
   getProducts() {
     return this.productsCollection.snapshotChanges().pipe(
       map(actions => {

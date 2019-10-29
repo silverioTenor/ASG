@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +7,12 @@ import { LoadingController, ToastController } from '@ionic/angular';
 export class MessageService {
   public loading: any;
   public toast: any;
+  public alert: any;
   
   constructor(
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public alertCtrl: AlertController
   ) { }
 
   async presentLoading() {
@@ -21,5 +23,15 @@ export class MessageService {
   async presentToast(message: string) {
     this.toast = await this.toastCtrl.create({ message, duration: 2000 });
     this.toast.present();
+  }
+
+  async presentAlert(message: string) {
+    this.alert = await this.alertCtrl.create({
+      header: 'Aviso!',
+      message,
+      buttons: ['OK']
+    });
+
+    await this.alert.present();
   }
 }

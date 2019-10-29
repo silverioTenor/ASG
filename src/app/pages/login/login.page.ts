@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
-import { User } from 'src/app/interfaces/user';
+import { User } from 'src/app/model/user';
 import { MessageService } from 'src/app/services/message.service';
 import { AuthService } from 'src/app/services/auth.service';
 
