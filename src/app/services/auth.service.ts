@@ -1,7 +1,6 @@
 import { User } from 'src/app/interfaces/user';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { LoadingController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +25,10 @@ export class AuthService {
 
   getAuth() {
     return this.afa.auth;
+  }
+
+  forgotPassword(user: User) {
+    return this.afa.auth.sendPasswordResetEmail(user.email);
   }
 
 }

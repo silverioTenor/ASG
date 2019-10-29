@@ -28,7 +28,8 @@ const routes: Routes = [
   { 
     path: 'services', 
     loadChildren: './pages/services/services.module#ServicesPageModule', canActivate: [AuthGuard]
-  },
+  },  { path: 'password', loadChildren: './pages/password/password.module#PasswordPageModule' },
+
 
 ];
 

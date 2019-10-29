@@ -42,6 +42,10 @@ export class LoginPage implements OnInit {
       let message: string;
 
       switch (error.code) {
+        case 'auth/argument-error':
+          message = 'Os campos estão vazios ou não foram preenchidos corretamente.'
+          break;
+        
         case 'auth/invalid-email':
           message = 'O formato de e-mail informado é inválido!'
           break;
@@ -71,6 +75,10 @@ export class LoginPage implements OnInit {
       let message: string;
 
       switch (error.code) {
+        case 'auth/argument-error':
+          message = 'Os campos estão vazios ou não foram preenchidos corretamente.'
+          break;
+        
         case 'auth/email-already-in-use':
           message = 'O e-mail informado já está sendo usado!'
           break;
