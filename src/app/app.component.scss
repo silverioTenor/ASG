@@ -2,3 +2,21 @@
     width: 200px;
     margin: 40px auto;
 }
+
+.active {
+    --ion-text-color: var(--ion-color-primary);
+
+    ion-icon {
+        --ion-text-color: var(--ion-color-primary);
+    }
+}
+
+.active-parent {
+    --ion-text-color: var(--ion-color-primary);
+    font-weight: bold;
+}
+
+.sub-item {
+    padding-left: 20px;
+    font-size: small;
+}

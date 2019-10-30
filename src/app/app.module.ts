@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { NativeKeyboard } from '@ionic-native/native-keyboard/ngx';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -35,6 +36,7 @@ import { File } from '@ionic-native/file/ngx';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    NativeKeyboard,
     Keyboard,
     Camera,
     File

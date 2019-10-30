@@ -31,12 +31,17 @@ const routes: Routes = [
   },
   { 
     path: 'password', 
-    loadChildren: './pages/password/password.module#PasswordPageModule', canActivate: [AuthGuard]
+    loadChildren: './pages/password/password.module#PasswordPageModule', canActivate: [LoginGuard]
    },
   { 
     path: 'add-products', 
     loadChildren: './pages/add-products/add-products.module#AddProductsPageModule', canActivate: [AuthGuard] 
   },
+  { 
+    path: 'products', 
+    loadChildren: './pages/products/products.module#ProductsPageModule', canActivate: [AuthGuard]  
+  },
+
 
 
 ];

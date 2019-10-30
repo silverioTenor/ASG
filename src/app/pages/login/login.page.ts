@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
+import { NativeKeyboard } from '@ionic-native/native-keyboard/ngx';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { User } from 'src/app/model/user';
 import { MessageService } from 'src/app/services/message.service';
@@ -17,6 +18,7 @@ export class LoginPage implements OnInit {
   public userRegister: User = {};
 
   constructor(
+    public nativaKeyboard: NativeKeyboard,
     public keyboard: Keyboard,
     public auth: AuthService,
     public msg: MessageService

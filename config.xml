@@ -45,7 +45,7 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
-        <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+        <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
             <string>precisa de acesso à biblioteca de fotos para tirar fotos de lá</string>
         </edit-config>
         <allow-intent href="itms:*" />

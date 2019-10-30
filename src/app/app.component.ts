@@ -22,6 +22,16 @@ export class AppComponent {
       title: 'Serviços',
       url: '/services',
       icon: 'briefcase'
+    },
+    {
+      title: 'Administrador',
+      children: [
+        {
+          title: 'Produtos',
+          url: '/products',
+          icon: 'briefcase'
+        }
+      ]
     }
   ];
 
