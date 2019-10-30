@@ -28,7 +28,15 @@ const routes: Routes = [
   { 
     path: 'services', 
     loadChildren: './pages/services/services.module#ServicesPageModule', canActivate: [AuthGuard]
-  },  { path: 'password', loadChildren: './pages/password/password.module#PasswordPageModule' },
+  },
+  { 
+    path: 'password', 
+    loadChildren: './pages/password/password.module#PasswordPageModule', canActivate: [AuthGuard]
+   },
+  { 
+    path: 'add-products', 
+    loadChildren: './pages/add-products/add-products.module#AddProductsPageModule', canActivate: [AuthGuard] 
+  },
 
 
 ];

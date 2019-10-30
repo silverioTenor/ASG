@@ -6,6 +6,7 @@
           <ion-img src="/assets/logoPrincipal.png" id="logo"></ion-img>
         </ion-toolbar>
       </ion-header>
+
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
@@ -16,12 +17,14 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
+
           <ion-item id="sair" (click)="logout()">
             <ion-icon slot="start" name="power"></ion-icon>
             <ion-label>
               Sair
             </ion-label>
           </ion-item>
+
         </ion-list>
       </ion-content>
     </ion-menu>

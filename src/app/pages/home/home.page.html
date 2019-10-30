@@ -9,39 +9,17 @@
 
 <ion-content>
   <!-- Produto promocional -->
-  <ion-card class="welcome-card" routerLink="/details">
-    <img src="/assets/banner.png" />
+  <ion-card class="welcome-card" *ngFor="let product of products" [routerLink]="['/details', product.id]">
+    <img [src]="product.picture" />
   </ion-card>
 
   <!-- Demais produtos -->
-
   <div class="master">
-    <ion-card class="welcome-card2" routerLink="/details">
-      <img src="/assets/banner.png" />
+    <ion-card class="welcome-card2" *ngFor="let product of products" [routerLink]="['/details', product.id]">
+      <img [src]="product.picture" />
 
-      <div>Produto</div>
-      <div>R$ 89,90</div>
-    </ion-card>
-
-    <ion-card class="welcome-card2" routerLink="/details">
-      <img src="/assets/banner.png" />
-
-      <div>Produto</div>
-      <div>R$ 89,90</div>
-    </ion-card>
-
-    <ion-card class="welcome-card2" routerLink="/details">
-      <img src="/assets/banner.png" />
-
-      <div>Produto</div>
-      <div>R$ 89,90</div>
-    </ion-card>
-
-    <ion-card class="welcome-card2" routerLink="/details">
-      <img src="/assets/banner.png" />
-
-      <div>Produto</div>
-      <div>R$ 89,90</div>
+      <div>{{ product.name }}</div>
+      <div *ngIf="product.price">{{ product.price | currency: 'BRL' }}</div>
     </ion-card>
   </div>
 

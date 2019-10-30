@@ -4,7 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './services/auth.service';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +30,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
-    private router: Router
+    // private router: Router
   ) {
     this.initializeApp();
   }
@@ -44,8 +44,8 @@ export class AppComponent {
 
   async logout() {
     try {
-      this.router.navigate(['/login']);
       await this.authService.logout();
+      // this.router.navigate(['/login']);
     } catch (error) {
       console.error(error);
     }
