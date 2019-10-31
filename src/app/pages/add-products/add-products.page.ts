@@ -1,10 +1,15 @@
+import { Product } from './../../model/product';
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraOptions  } from '@ionic-native/camera/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { MessageService } from 'src/app/services/message.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-add-products',
@@ -15,15 +20,31 @@ export class AddProductsPage implements OnInit {
 
   public uploadPercent: Observable<number>;
   public downloadUrl: Observable<string>;
+  private product: Product = {};
+  private productId: string = null;
+  private productSubscription: Subscription
 
   constructor(
     private camera: Camera,
     private platform: Platform,
     private file: File,
-    private afStorade: AngularFireStorage
-    ) { }
+    private afStorade: AngularFireStorage,
+    private msg: MessageService,
+    private afService: AuthService,
+    private activeRoute: ActivatedRoute,
+    private productService: ProductService,
+    private navCtrl: NavController
+  ) {
+    this.productId = this.activeRoute.snapshot.params['id'];
+
+    if (this.productId) this.loadProduct();
+  }
 
   ngOnInit() {
+  }
+
+  loadProduct() {
+    this.productSubscription = this.productService.getProduct(this.productId).subscribe(data => { this.product = data; })
   }
 
   async openGalery() {
@@ -50,7 +71,7 @@ export class AddProductsPage implements OnInit {
 
         const buffer: ArrayBuffer = await this.file.readAsArrayBuffer(path, file);
 
-        const blob: Blob = new Blob([buffer], {type: 'image/jpeg'});
+        const blob: Blob = new Blob([buffer], { type: 'image/jpeg' });
         this.uploadPicture(blob);
       }
     } catch (error) {
@@ -59,7 +80,7 @@ export class AddProductsPage implements OnInit {
   }
 
   uploadPicture(blob: Blob) {
-    const ref = this.afStorade.ref('ionic.jpg');
+    const ref = this.afStorade.ref(this.product.name + '.jpg');
     const task = ref.put(blob);
 
     this.uploadPercent = task.percentageChanges();
@@ -67,5 +88,27 @@ export class AddProductsPage implements OnInit {
     task.snapshotChanges().pipe(
       finalize(() => this.downloadUrl = ref.getDownloadURL())
     ).subscribe();
+  }
+
+  async saveProduct() {
+    this.msg.presentLoading();
+
+    this.product.userId = this.afService.getAuth().currentUser.uid;
+
+    if (this.productId) {
+      
+    } else {
+      this.product.createAt = new Date().getTime();
+
+      try {
+        await this.productService.addProduct(this.product);
+
+        this.navCtrl.navigateBack('/products');
+      } catch (error) {
+        this.msg.presentToast('Erro ao salvar!');
+      } finally {
+        this.msg.loading.dismiss();
+      }
+    }
   }
 }

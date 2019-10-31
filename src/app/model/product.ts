@@ -4,6 +4,6 @@ export interface Product {
     description?: string;
     picture?: string;
     price?: string;
-    createAt?: string;
+    createAt?: number;
     userId?: string;
 }

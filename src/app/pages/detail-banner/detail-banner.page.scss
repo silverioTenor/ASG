@@ -1,0 +1,24 @@
+ion-slides {
+    height: 40%;
+}
+
+span {
+    font-weight: bold;
+}
+
+.compra {
+    width: 100%;
+    background: #ccc;
+    position: fixed;
+    top: 570px;
+
+    h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    ion-button {
+        width: 100%;
+        margin-top: 7px;
+    }
+}

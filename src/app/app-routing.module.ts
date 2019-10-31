@@ -41,6 +41,11 @@ const routes: Routes = [
     path: 'products', 
     loadChildren: './pages/products/products.module#ProductsPageModule', canActivate: [AuthGuard]  
   },
+  { 
+    path: 'detail-banner', 
+    loadChildren: './pages/detail-banner/detail-banner.module#DetailBannerPageModule', canActivate: [AuthGuard] 
+  },
+
 
 
 
