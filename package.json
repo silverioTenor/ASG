@@ -11,8 +11,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "update": "ng update",
-    "cli": "ng update @angular/cli8",
-    "core": "ng update @angular/core8",
+    "cli": "ng update @angular/cli@8",
+    "core": "ng update @angular/core@8",
     "fire": "ng update @angular/fire"
   },
   "private": true,
