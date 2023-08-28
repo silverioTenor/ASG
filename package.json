@@ -41,8 +41,8 @@
     "cordova-plugin-native-keyboard": "^2.0.5",
     "core-js": "^3.32.1",
     "firebase": "^10.3.0",
-    "rxjs": "^6.5.1",
-    "tslib": "^1.9.0",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.6.2",
     "zone.js": "^0.13.1"
   },
   "devDependencies": {
@@ -51,7 +51,7 @@
     "@angular-devkit/core": "^16.2.0",
     "@angular-devkit/schematics": "^16.2.0",
     "@angular/cli": "^16.2.0",
-    "@angular/compiler": "^8.1.2",
+    "@angular/compiler": "^16.2.2",
     "@angular/compiler-cli": "^16.2.2",
     "@angular/language-service": "^16.2.2",
     "@ionic/angular-toolkit": "^10.0.0",
