@@ -9,7 +9,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "update": "ng update",
+    "cli": "ng update @angular/cli",
+    "core": "ng update @angular/core",
+    "fire": "ng update @angular/fire"
   },
   "private": true,
   "dependencies": {
